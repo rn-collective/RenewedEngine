@@ -18,6 +18,7 @@ namespace REngine
 	/// You can use this to create things like HUDs and declare which player class
 	/// to use for spawned players.
 	/// </summary>
+	[Library( "rengine", Title = "Renewed Engine" )]
 	public partial class REngine : Sandbox.Game
 	{
 		public REngine()
