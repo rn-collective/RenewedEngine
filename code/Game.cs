@@ -33,6 +33,10 @@ namespace REngine
 			}
 		}
 
+		public override void Shutdown()
+		{
+			if (Current == this)
+				Current = null;
 		}
 
 		public override void ClientJoined(Client cl)
