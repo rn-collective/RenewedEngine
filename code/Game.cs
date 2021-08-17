@@ -11,12 +11,15 @@ namespace REngine
 
 	public partial class REngine : Sandbox.Game
 	{
+		public static REngine Current { get; protected set; }
 		public REngine()
 		{
 			if (IsServer)
 			{
 				_ = new REngineHUD();
 			}
+			Current = this;
+		}
 		}
 
 		public override void ClientJoined(Client cl)
