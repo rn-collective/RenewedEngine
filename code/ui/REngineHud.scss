@@ -1,0 +1,138 @@
+Health {
+	font-family: Roboto;
+	font-size: 45px;
+	font-weight: 700;
+	color: white;
+	position: absolute;
+	left: 40px;
+	top: 90%;
+	text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.30);
+}
+
+ammo {
+	font-family: Roboto;
+	font-size: 45px;
+	font-weight: 700;
+	color: white;
+	position: absolute;
+	right: 5%;
+	top: 90.6%;
+	text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.30);
+
+	label {
+		text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.30);
+
+		&.danger {
+			color: #f00;
+		}
+	}
+}
+
+CurrentTool
+{
+	position: absolute;
+	background: linear-gradient(to right, rgba(black, 0.5), rgba(black, 0.0));
+	top: 100px;
+	left: -5px;
+	padding: 30px 70px;
+	flex-direction: column;
+	width: 560px;
+	opacity: 0.0;
+
+	&.active
+	{
+		opacity: 1.0;
+	}
+
+	.title
+	{
+		font-family: Open Sans;
+		font-size: 50px;
+		font-weight: bold;
+		text-shadow: 4px 4px 10px rgba( black, 0.3 );
+		color: white;
+	}
+
+	.description
+	{
+		padding-top: 5px;
+		padding-left: 10px;
+		font-family: Roboto;
+		font-size: 20px;
+		font-weight: normal;
+		text-shadow: 2px 2px 5px rgba( black, 0.3 );
+		color: white;
+		opacity: 0.8;
+	}
+}
+
+rootpanel
+{
+	background-color: rgba( #333, 0 );
+	transition: background-color 0.2s ease-in;
+
+	&.spawnmenuopen
+	{
+		transition: background-color 0.3s ease-out;
+		background-color: rgba( #333, 0.9 );
+	}
+
+
+	&.devcamera
+	{
+		display: none;
+	}
+}
+
+
+InventoryBar
+{
+	position: absolute;
+	width: 100%;
+	bottom: 48px;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+InventoryIcon
+{
+	width: 80px;
+	height: 30px;
+	background-color: rgba( #222, 0.3 );
+	margin: 0px 2px;
+	position: relative;
+	transition: all 0.2s ease-in-out;
+	margin-top: 10px;
+	font-family: poppins;
+	border-radius: 4px;
+
+	.item-name
+	{
+		padding: 5px;
+		color: white;
+		text-align: center;
+		left: 0;
+		right: 0;
+		font-size: 13px;
+		position: absolute;
+		bottom: 0;
+		opacity: 0.7;
+		transition: all 0.5s ease-in-out;
+		text-shadow: 1px 1px 5px black;
+	}
+
+	&.active
+	{
+		background-color: rgba( #0094ff, 0.5 );
+		transition: all 0.1s ease-out;
+		width: 100px;
+		height: 30px;
+
+		.item-name
+		{
+			opacity: 1;
+			transition: all 0.1s ease-out;
+			font-size: 15px;
+		}
+	}
+}

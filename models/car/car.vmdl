@@ -1,0 +1,170 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "LODGroupList"
+				children = 
+				[
+					{
+						_class = "LODGroup"
+						switch_threshold = 0.0
+						meshes = 
+						[
+							"Chassis_2_Main",
+							"unnamed_1",
+						]
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "modular_vehicle_a.vmat"
+								to = "entities/modular_vehicle/modular_vehicle_a.vmat"
+							},
+							{
+								from = "03 - default.vmat"
+								to = "models/rust_props/chairs/wooden_chairs.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsShapeBox"
+						parent_bone = ""
+						surface_prop = "car"
+						collision_prop = "default"
+						origin = [ 0.0, 0.0, 30.0 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						dimensions = [ 80.0, 65.0, 20.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = ""
+						surface_prop = "car"
+						collision_prop = "default"
+						radius = 10.0
+						point0 = [ 50.0, -25.0, 25.0 ]
+						point1 = [ 50.0, 25.0, 25.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = ""
+						surface_prop = "car"
+						collision_prop = "default"
+						radius = 10.0
+						point0 = [ -50.0, -25.0, 25.0 ]
+						point1 = [ -50.0, 25.0, 25.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = ""
+						surface_prop = "car"
+						collision_prop = "default"
+						radius = 10.0
+						point0 = [ -50.0, -25.0, 25.0 ]
+						point1 = [ 50.0, -25.0, 25.0 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = ""
+						surface_prop = "car"
+						collision_prop = "default"
+						radius = 10.0
+						point0 = [ -50.0, 25.0, 25.0 ]
+						point1 = [ 50.0, 25.0, 25.0 ]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "Chassis_2_Main"
+						filename = "entities/modular_vehicle/chassis_main.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 0.4
+						align_origin_x_type = "None"
+						align_origin_y_type = "BoundsCenter"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"LOD1",
+								"LOD2",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "Chassis_2_Main1"
+						filename = "entities/modular_vehicle/chassis_main.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 0.4
+						align_origin_x_type = "None"
+						align_origin_y_type = "BoundsCenter"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"LOD2",
+								"LOD0",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "Chassis_2_Main2"
+						filename = "entities/modular_vehicle/chassis_main.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 0.4
+						align_origin_x_type = "None"
+						align_origin_y_type = "BoundsCenter"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"LOD1",
+								"LOD0",
+							]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}

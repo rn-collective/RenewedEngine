@@ -1,4 +1,16 @@
 // 
+// Tool : Carriable 
+// 
+@PointClass = weapon_tool : ""
+[
+	targetname(target_source) : "Name" : : "The name that other entities refer to this entity by."
+	parentname(target_destination) [ group="Hierarchy" ] : "Parent" : : "The name of this entity's parent in the movement hierarchy. Entities with parents move with their parent."
+	enable_shadows(boolean) [ group="Render Properties" ] : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
+
+	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
+]
+
+// 
 // BalloonEntity : Sandbox.Prop 
 // 
 @PointClass model() = ent_balloon : ""
@@ -250,19 +262,7 @@
 ]
 
 // 
-// Tool : Carriable 
-// 
-@PointClass = weapon_tool : ""
-[
-	targetname(target_source) : "Name" : : "The name that other entities refer to this entity by."
-	parentname(target_destination) [ group="Hierarchy" ] : "Parent" : : "The name of this entity's parent in the movement hierarchy. Entities with parents move with their parent."
-	enable_shadows(boolean) [ group="Render Properties" ] : "Shadow Casting" : 1 : "Whether this entity should cast shadows or not"
-
-	input SetColor(string) : "Sets the color of this entity. Format is '255 255 255 255'."
-]
-
-// 
-// Flashlight : BaseRWeapon 
+// Flashlight : Weapon 
 // 
 @PointClass = weapon_flashlight : ""
 [
@@ -274,9 +274,9 @@
 ]
 
 // 
-// Pistol : BaseRWeapon 
+// Pistol : Weapon 
 // 
-@PointClass editormodel( "weapons/rust_pistol/rust_pistol.vmdl" ) = weapon_pistol : ""
+@PointClass = weapon_pistol : ""
 [
 	targetname(target_source) : "Name" : : "The name that other entities refer to this entity by."
 	parentname(target_destination) [ group="Hierarchy" ] : "Parent" : : "The name of this entity's parent in the movement hierarchy. Entities with parents move with their parent."
@@ -313,9 +313,9 @@
 ]
 
 // 
-// REngine.REngine : Sandbox.Game 
+// Hillmons.Hillmons : Sandbox.Game 
 // 
-@PointClass = rengine : ""
+@PointClass = hillmons : ""
 [
 	targetname(target_source) : "Name" : : "The name that other entities refer to this entity by."
 	parentname(target_destination) [ group="Hierarchy" ] : "Parent" : : "The name of this entity's parent in the movement hierarchy. Entities with parents move with their parent."
