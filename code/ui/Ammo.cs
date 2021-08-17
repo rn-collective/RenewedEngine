@@ -21,12 +21,24 @@ public class Ammo : Panel
 		var weapon = player.ActiveChild as BaseRWeapon;
 		SetClass("active", weapon != null);
 
-		if (weapon == null) return;
+		if (weapon == null)
+		{
+			Weapon.Text = "";
+			Inventory.Text = "";
+		} else
+		{
+			Weapon.Text = $"{weapon.AmmoClip}";
 
-		Weapon.Text = $"{weapon.AmmoClip}";
+			var inv = weapon.AvailableAmmo();
+			Inventory.Text = $" / {inv}";
+			Inventory.SetClass("active", inv >= 0);
 
-		var inv = weapon.AvailableAmmo();
-		Inventory.Text = $" / {inv}";
-		Inventory.SetClass("active", inv >= 0);
+			if (weapon.AmmoClip == 0 && inv == 0)
+			{
+				Weapon.Text = "";
+				Inventory.Text = "";
+				Inventory.SetClass("active", inv >= 0);
+			}
+		}
 	}
 }

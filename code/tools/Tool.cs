@@ -8,6 +8,8 @@ partial class Tool : Carriable
 	public static string UserToolCurrent { get; set; } = "tool_boxgun";
 
 	public override string ViewModelPath => "weapons/rust_pistol/v_rust_pistol.vmdl";
+	public static bool IsTool = true;
+
 
 	[Net, Predicted]
 	public BaseTool CurrentTool { get; set; }
