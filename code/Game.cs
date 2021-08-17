@@ -43,16 +43,18 @@ namespace REngine
 		/// <summary>
 		/// A client has joined the server. Make them a pawn to play with
 		/// </summary>
-		public override void ClientJoined( Client client )
+		public override void ClientJoined(Client cl)
 		{
-			base.ClientJoined( client );
+			base.ClientJoined(cl);
 
 			var player = new REnginePlayer();
-			client.Pawn = player;
+			cl.Pawn = player;
 
 			player.Respawn();
 			player.Tags.Add("initialized");
 			Event.Run("OnClientInitialized", cl);
+		}
+
 		public override void DoPlayerNoclip(Client cl) {
 			if (cl.Pawn.Tags.Has("isAdmin") && cl.Pawn is Player basePlayer)
 			{
