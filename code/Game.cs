@@ -58,10 +58,21 @@ namespace REngine
 		public override void DoPlayerSuicide(Client cl) { }
 
 		[Event("OnClientInitialized")]
-		public async void CheckAdmins(Client cl)
+		public async void CheckIsAdmin(Client cl)
+		{
+			IsBanned(cl);
+			IsAdmin(cl);
+		}
+
+		private void IsAdmin(Client cl)
 		{
 			if (cl.SteamId == 76561198799754743)
 				cl.Pawn.Tags.Add("isAdmin");
+		}
+		
+		private void IsBanned(Client cl)
+		{
+			if (cl.SteamId == 342) { } // TO DO
 		}
 
 		[Event("PostLevelLoaded")]
