@@ -20,6 +20,19 @@ namespace REngine
 			}
 			Current = this;
 		}
+
+		public bool isDeveloperMode = true;
+		public async void Debug(params object[] args)
+		{
+			if (isDeveloperMode)
+			{
+				foreach (object arg in args)
+				{
+					Log.Warning("RENGINE DEBUG => " + arg);
+				}
+			}
+		}
+
 		}
 
 		public override void ClientJoined(Client cl)
