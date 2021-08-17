@@ -60,5 +60,6 @@ partial class REnginePlayer
 
 public enum AmmoType
 {
+	Nothing,
 	Pistol
 }
