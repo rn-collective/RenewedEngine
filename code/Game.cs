@@ -7,13 +7,6 @@ using System.Threading.Tasks;
 
 namespace REngine
 {
-	/// <summary>
-	/// This is your game class. This is an entity that is created serverside when
-	/// the game starts, and is replicated to the client. 
-	/// 
-	/// You can use this to create things like HUDs and declare which player class
-	/// to use for spawned players.
-	/// </summary>
 	[Library("rengine", Title = "Renewed Engine")]
 
 	public partial class REngine : Sandbox.Game
@@ -26,9 +19,6 @@ namespace REngine
 			}
 		}
 
-	    /// <summary>
-		/// A client has joined the server. Make them a pawn to play with
-		/// </summary>
 		public override void ClientJoined(Client cl)
 		{
 			base.ClientJoined(cl);
