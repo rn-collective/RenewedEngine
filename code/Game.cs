@@ -58,6 +58,11 @@ namespace REngine
 				Event.Run("PostPlayerNoclipped", cl);
 			}
 		}
+		public override void PostLevelLoaded()
+		{
+			base.PostLevelLoaded();
+			Event.Run("PostLevelLoaded");
+		}
 		}
 	}
 }
