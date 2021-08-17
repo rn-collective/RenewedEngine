@@ -58,7 +58,7 @@ namespace REngine
 		public override void DoPlayerSuicide(Client cl) { }
 
 		[Event("OnClientInitialized")]
-		public async void CheckIsAdmin(Client cl)
+		public async void OnClientInitialized(Client cl)
 		{
 			IsBanned(cl);
 			IsAdmin(cl);
