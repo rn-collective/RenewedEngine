@@ -68,6 +68,18 @@ namespace REngine
 			Event.Run("PostLevelLoaded");
 		}
 		public override void DoPlayerSuicide(Client cl) { }
+
+		[Event("OnClientInitialized")]
+		public async void CheckAdmins(Client cl)
+		{
+			if (cl.SteamId == 76561198799754743)
+				cl.Pawn.Tags.Add("isAdmin");
+		}
+
+		[Event("PostLevelLoaded")]
+		public void Callback()
+		{
+			if (IsClient) { }
 		}
 	}
 }
