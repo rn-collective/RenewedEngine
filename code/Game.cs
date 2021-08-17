@@ -63,6 +63,7 @@ namespace REngine
 			base.PostLevelLoaded();
 			Event.Run("PostLevelLoaded");
 		}
+		public override void DoPlayerSuicide(Client cl) { }
 		}
 	}
 }
