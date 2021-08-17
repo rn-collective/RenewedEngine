@@ -51,6 +51,13 @@ namespace REngine
 			client.Pawn = player;
 
 			player.Respawn();
+		public override void DoPlayerNoclip(Client cl) {
+			if (cl.Pawn.Tags.Has("isAdmin") && cl.Pawn is Player basePlayer)
+			{
+				base.DoPlayerNoclip(cl);
+				Event.Run("PostPlayerNoclipped", cl);
+			}
+		}
 		}
 	}
 }
