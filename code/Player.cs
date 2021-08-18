@@ -48,7 +48,6 @@ partial class REnginePlayer : Player
 		EnableHideInFirstPerson = true;
 		EnableShadowInFirstPerson = true;
 
-		Dress();
 		ClearAmmo();
 
 		base.Respawn();
