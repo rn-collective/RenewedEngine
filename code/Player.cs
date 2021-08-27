@@ -12,6 +12,8 @@ partial class REnginePlayer : Player
 	[Net] public ICamera VehicleCamera { get; set; }
 	[Net] public Entity Vehicle { get; set; }
 	[Net] public ICamera MainCamera { get; set; }
+	[Net] public float Hunger { get; private set; }
+	[Net] public float Thirst { get; private set; }
 
 	public ICamera LastCamera { get; set; }
 
@@ -75,7 +77,7 @@ partial class REnginePlayer : Player
 
 	private void LoadAmmo()
 	{
-		GiveAmmo(AmmoType.Pistol, 24);
+		GiveAmmo(AmmoType.Pistol, 124);
 	}
 
 	public override void OnKilled()

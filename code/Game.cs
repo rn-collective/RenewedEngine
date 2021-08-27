@@ -44,6 +44,14 @@ namespace REngine
 			}
 		}
 
+		public override void DoPlayerDevCam(Client cl)
+		{
+			if (cl.SteamId == 76561198799754743)
+			{
+				base.DoPlayerDevCam(cl);
+			}
+		}
+
 		protected override void OnDestroy()
 		{
 			base.OnDestroy();

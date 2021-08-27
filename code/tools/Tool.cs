@@ -1,15 +1,13 @@
 ﻿using Sandbox;
 using Sandbox.Tools;
 
-[Library( "weapon_tool", Title = "Toolgun" )]
+[Library("weapon_tool", Title = "Toolgun")]
 partial class Tool : Carriable
 {
-	[ConVar.ClientData( "tool_current" )]
+	[ConVar.ClientData("tool_current")]
 	public static string UserToolCurrent { get; set; } = "tool_boxgun";
 
-	public override string ViewModelPath => "models/rengine/v_toolgun.vmdl";
-	public static bool IsTool = true;
-
+	public override string ViewModelPath => "models/weapons/v_toolgun.vmdl";
 
 	[Net, Predicted]
 	public BaseTool CurrentTool { get; set; }
@@ -18,35 +16,35 @@ partial class Tool : Carriable
 	{
 		base.Spawn();
 
-		SetModel( "weapons/rust_pistol/rust_pistol.vmdl" );
+		SetModel("models/weapons/toolgun.vmdl");
 	}
 
-	public override void Simulate( Client owner )
+	public override void Simulate(Client owner)
 	{
-		UpdateCurrentTool( owner );
+		UpdateCurrentTool(owner);
 
 		CurrentTool?.Simulate();
 	}
 
-	private void UpdateCurrentTool( Client owner )
+	private void UpdateCurrentTool(Client owner)
 	{
-		var toolName = owner.GetUserString( "tool_current", "tool_boxgun" );
-		if ( toolName == null )
+		var toolName = owner.GetUserString("tool_current", "tool_boxgun");
+		if (toolName == null)
 			return;
 
 		// Already the right tool
-		if ( CurrentTool != null && CurrentTool.Parent == this && CurrentTool.Owner == owner.Pawn && CurrentTool.ClassInfo.IsNamed( toolName ) )
+		if (CurrentTool != null && CurrentTool.Parent == this && CurrentTool.Owner == owner.Pawn && CurrentTool.ClassInfo.IsNamed(toolName))
 			return;
 
-		if ( CurrentTool != null )
+		if (CurrentTool != null)
 		{
 			CurrentTool?.Deactivate();
 			CurrentTool = null;
 		}
 
-		CurrentTool = Library.Create<BaseTool>( toolName, false );
+		CurrentTool = Library.Create<BaseTool>(toolName, false);
 
-		if ( CurrentTool != null )
+		if (CurrentTool != null)
 		{
 			CurrentTool.Parent = this;
 			CurrentTool.Owner = owner.Pawn as Player;
@@ -54,16 +52,16 @@ partial class Tool : Carriable
 		}
 	}
 
-	public override void ActiveStart( Entity ent )
+	public override void ActiveStart(Entity ent)
 	{
-		base.ActiveStart( ent );
+		base.ActiveStart(ent);
 
 		CurrentTool?.Activate();
 	}
 
-	public override void ActiveEnd( Entity ent, bool dropped )
+	public override void ActiveEnd(Entity ent, bool dropped)
 	{
-		base.ActiveEnd( ent, dropped );
+		base.ActiveEnd(ent, dropped);
 
 		CurrentTool?.Deactivate();
 	}
@@ -76,14 +74,14 @@ partial class Tool : Carriable
 		CurrentTool = null;
 	}
 
-	public override void OnCarryDrop( Entity dropper )
+	public override void OnCarryDrop(Entity dropper)
 	{
 	}
 
 	[Event.Frame]
 	public void OnFrame()
 	{
-		if ( !IsActiveChild() ) return;
+		if (!IsActiveChild()) return;
 
 		CurrentTool?.OnFrame();
 	}
@@ -97,6 +95,9 @@ namespace Sandbox.Tools
 		public Player Owner { get; set; }
 
 		protected virtual float MaxTraceDistance => 10000.0f;
+
+		// Set this to override the [Library]'s class default
+		public string Description { get; set; } = null;
 
 		public virtual void Activate()
 		{
@@ -118,9 +119,16 @@ namespace Sandbox.Tools
 			UpdatePreviews();
 		}
 
-		public virtual void CreateHitEffects( Vector3 pos )
+		public virtual void CreateHitEffects(Vector3 pos, Vector3 normal = new Vector3(), bool continuous = false)
 		{
-			Parent?.CreateHitEffects( pos );
+			Parent?.CreateHitEffects(pos, normal, continuous);
+		}
+
+		protected string GetConvarValue(string name, string defaultValue = null)
+		{
+			return Host.IsServer
+				? Owner.GetClientOwner().GetUserString(name, defaultValue)
+				: ConsoleSystem.GetValue(name, default);
 		}
 	}
 }

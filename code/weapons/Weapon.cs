@@ -152,13 +152,12 @@ public partial class BaseRWeapon : BaseWeapon, IUse
 	public virtual bool IsUsable( Entity user )
 	{
 		if ( Owner != null ) return false;
+		if (AmmoClip <= 0) return false;
 
 		if ( user.Inventory is Inventory inventory )
 		{
 			return inventory.CanAdd( this );
 		}
-
-		if (AmmoClip <= 0) return false;
 
 		return AvailableAmmo() > 0;
 	}
