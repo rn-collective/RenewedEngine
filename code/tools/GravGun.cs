@@ -6,7 +6,7 @@ using System.Linq;
 [Library( "gravgun" )]
 public partial class GravGun : Carriable
 {
-	public override string ViewModelPath => "weapons/rust_pistol/v_rust_pistol.vmdl";
+	public override string ViewModelPath => "models/newphysgun/newgravgun.vmdl";
 
 	private PhysicsBody holdBody;
 	private WeldJoint holdJoint;
