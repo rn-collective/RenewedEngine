@@ -28,7 +28,7 @@ partial class Tool : Carriable
 
 	private void UpdateCurrentTool(Client owner)
 	{
-		var toolName = owner.GetUserString("tool_current", "tool_boxgun");
+		var toolName = owner.GetClientData<string>("tool_current", "tool_boxgun");
 		if (toolName == null)
 			return;
 
@@ -127,7 +127,7 @@ namespace Sandbox.Tools
 		protected string GetConvarValue(string name, string defaultValue = null)
 		{
 			return Host.IsServer
-				? Owner.GetClientOwner().GetUserString(name, defaultValue)
+				? Owner.GetClientOwner().GetClientData<string>(name, defaultValue)
 				: ConsoleSystem.GetValue(name, default);
 		}
 	}
