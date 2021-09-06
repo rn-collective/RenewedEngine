@@ -10,11 +10,23 @@ namespace REngine
 	[Library("rengine", Title = "Renewed Engine")]
 	public partial class REngine : Sandbox.Game
 	{
+		public REngineHud REngineHudEnt;
+
 		public REngine()
 		{
-			if (IsServer)
+			if (IsClient)
 			{
-				_ = new REngineHud();
+				REngineHudEnt = new REngineHud();
+			}
+		}
+
+		[Event("Event.Hotloaded")]
+		public void Hotloaded()
+		{
+			if (IsClient)
+			{
+				REngineHudEnt?.Delete();
+				REngineHudEnt = new REngineHud();
 			}
 		}
 
