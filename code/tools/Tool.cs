@@ -16,7 +16,7 @@ partial class Tool : Carriable
 	{
 		base.Spawn();
 
-		SetModel("models/weapons/toolgun.vmdl");
+		SetModel("weapons/rust_pistol/rust_pistol.vmdl");
 	}
 
 	public override void Simulate(Client owner)
@@ -84,6 +84,13 @@ partial class Tool : Carriable
 		if (!IsActiveChild()) return;
 
 		CurrentTool?.OnFrame();
+	}
+
+	public override void SimulateAnimator(PawnAnimator anim)
+	{
+		anim.SetParam("holdtype", 1);
+		anim.SetParam("aimat_weight", 1.0f);
+		anim.SetParam("holdtype_handedness", 1);
 	}
 }
 
