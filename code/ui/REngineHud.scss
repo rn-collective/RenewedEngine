@@ -10,7 +10,7 @@ Health {
 }
 
 ammo {
-	font-family: Roboto;
+	font-family: Tahoma;
 	font-size: 45px;
 	font-weight: 700;
 	color: white;
@@ -74,7 +74,7 @@ rootpanel
 	&.spawnmenuopen
 	{
 		transition: background-color 0.3s ease-out;
-		background-color: rgba( #333, 0.9 );
+		background-color: rgba( #333, 0.8 );
 	}
 
 
@@ -96,14 +96,15 @@ InventoryBar
 
 InventoryIcon
 {
-	width: 80px;
+	width: 100px;
 	height: 30px;
 	background-color: rgba( #222, 0.3 );
 	margin: 0px 2px;
 	position: relative;
 	transition: all 0.2s ease-in-out;
 	margin-top: 10px;
-	font-family: poppins;
+	font-family: tahoma;
+	font-weight: bold;
 	border-radius: 4px;
 
 	.item-name
@@ -123,16 +124,16 @@ InventoryIcon
 
 	&.active
 	{
-		background-color: rgba( #0094ff, 0.5 );
-		transition: all 0.1s ease-out;
-		width: 100px;
+		background-color: rgba( #ffd800, 0.5 );
+		transition: all 0.5s ease-out;
+		width: 110px;
 		height: 30px;
 
 		.item-name
 		{
 			opacity: 1;
 			transition: all 0.1s ease-out;
-			font-size: 15px;
+			font-size: 13px;
 		}
 	}
 }

@@ -38,7 +38,7 @@ public class InventoryBar : Panel
 		}
 
 		inventoryIcon.TargetEnt = ent;
-		inventoryIcon.Label.Text = ent.ClassInfo.Title;
+		inventoryIcon.Label.Text = ent.ClassInfo.Title.ToUpper();
 		inventoryIcon.SetClass( "active", ent.IsActiveChild() );
 	}
 
