@@ -58,7 +58,7 @@ namespace REngine
 
 		public override void DoPlayerDevCam(Client cl)
 		{
-			if (cl.SteamId == 76561198799754743)
+			if (cl.Pawn.Tags.Has("isAdmin"))
 			{
 				base.DoPlayerDevCam(cl);
 			}
@@ -75,6 +75,9 @@ namespace REngine
 			var owner = ConsoleSystem.Caller?.Pawn;
 
 			if (ConsoleSystem.Caller == null)
+				return;
+
+			if (!owner.Tags.Has("isAdmin"))
 				return;
 
 			var tr = Trace.Ray(owner.EyePos, owner.EyePos + owner.EyeRot.Forward * 500)
@@ -108,6 +111,9 @@ namespace REngine
 			if (owner == null)
 				return;
 
+			if (!owner.Tags.Has("isAdmin"))
+				return;
+
 			var attribute = Library.GetAttribute(entName);
 
 			if (attribute == null || !attribute.Spawnable)
@@ -132,7 +138,7 @@ namespace REngine
 
 		public override void DoPlayerNoclip(Client player)
 		{
-			if (player.Pawn is Player basePlayer)
+			if (player.Pawn is Player basePlayer && player.Pawn.Tags.Has("isAdmin"))
 			{
 				if (basePlayer.DevController is NoclipController)
 				{
