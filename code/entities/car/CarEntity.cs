@@ -451,17 +451,23 @@ public partial class CarEntity : Prop, IUse
 	private void RemoveDriver( REnginePlayer player )
 	{
 		driver = null;
+		timeSinceDriverLeft = 0;
+
+		ResetInput();
+
+		if (!player.IsValid())
+			return;
+
 		player.Vehicle = null;
 		player.VehicleController = null;
 		player.VehicleAnimator = null;
 		player.VehicleCamera = null;
 		player.Parent = null;
-		player.PhysicsBody.Enabled = true;
-		player.PhysicsBody.Position = player.Position;
-
-		timeSinceDriverLeft = 0;
-
-		ResetInput();
+		if (player.PhysicsBody.IsValid())
+		{
+			player.PhysicsBody.Enabled = true;
+			player.PhysicsBody.Position = player.Position;
+		}
 	}
 
 	public bool OnUse( Entity user )

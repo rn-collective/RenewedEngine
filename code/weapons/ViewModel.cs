@@ -35,13 +35,23 @@ public class ViewModel : BaseViewModel
 
 		camSetup.ViewModel.FieldOfView = FieldOfView;
 
+		var playerVelocity = Local.Pawn.Velocity;
+
+		if (Local.Pawn is Player player)
+		{
+			var controller = player.GetActiveController();
+			if (controller != null && controller.HasTag("noclip"))
+			{
+				playerVelocity = Vector3.Zero;
+			}
+		}
+
 		var newPitch = Rotation.Pitch();
 		var newYaw = Rotation.Yaw();
 
 		var pitchDelta = Angles.NormalizeAngle( newPitch - lastPitch );
 		var yawDelta = Angles.NormalizeAngle( lastYaw - newYaw );
 
-		var playerVelocity = Local.Pawn.Velocity;
 		var verticalDelta = playerVelocity.z * Time.Delta;
 		var viewDown = Rotation.FromPitch( newPitch ).Up * -1.0f;
 		verticalDelta *= (1.0f - System.MathF.Abs( viewDown.Cross( Vector3.Down ).y ));

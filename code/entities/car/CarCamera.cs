@@ -48,6 +48,13 @@ public class CarCamera : Camera
 		currentFov = MinFov;
 		carPitch = 0;
 		firstPerson = false;
+
+		var car = (pawn as REnginePlayer)?.Vehicle as CarEntity;
+		if (!car.IsValid()) return;
+
+		orbitYawRot = firstPerson ? Rotation.Identity : Rotation.FromYaw(car.Rotation.Yaw());
+		orbitPitchRot = firstPerson ? Rotation.FromPitch(FirstPersonPitch) : Rotation.Identity;
+		orbitAngles = (orbitYawRot * orbitPitchRot).Angles();
 	}
 
 	public override void Update()

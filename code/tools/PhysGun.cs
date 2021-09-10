@@ -94,6 +94,11 @@ public partial class PhysGun : Carriable
 					GrabEnd();
 				}
 			}
+
+			if (!grabbing && Input.Pressed(InputButton.Reload))
+			{
+				TryUnfreezeAll(owner, eyePos, eyeRot, eyeDir);
+			}
 		}
 
 		if ( BeamActive )
@@ -111,6 +116,43 @@ public partial class PhysGun : Carriable
 		return false;
 	}
 
+	private void TryUnfreezeAll(Player owner, Vector3 eyePos, Rotation eyeRot, Vector3 eyeDir)
+	{
+		var tr = Trace.Ray(eyePos, eyePos + eyeDir * MaxTargetDistance)
+			.UseHitboxes()
+			.Ignore(owner, false)
+			.HitLayer(CollisionLayer.Debris)
+			.Run();
+
+		if (!tr.Hit || !tr.Entity.IsValid() || tr.Entity.IsWorld) return;
+
+		var rootEnt = tr.Entity.Root;
+		if (!rootEnt.IsValid()) return;
+
+		var physicsGroup = rootEnt.PhysicsGroup;
+		if (physicsGroup == null) return;
+
+		bool unfrozen = false;
+
+		for (int i = 0; i < physicsGroup.BodyCount; ++i)
+		{
+			var body = physicsGroup.GetBody(i);
+			if (!body.IsValid()) continue;
+
+			if (body.BodyType == PhysicsBodyType.Static)
+			{
+				body.BodyType = PhysicsBodyType.Dynamic;
+				unfrozen = true;
+			}
+		}
+
+		if (unfrozen)
+		{
+			var freezeEffect = Particles.Create("particles/physgun_freeze.vpcf");
+			freezeEffect.SetPosition(0, tr.EndPos);
+		}
+	}
+
 	private void TryStartGrab( Player owner, Vector3 eyePos, Rotation eyeRot, Vector3 eyeDir )
 	{
 		var tr = Trace.Ray( eyePos, eyePos + eyeDir * MaxTargetDistance )
@@ -119,7 +161,7 @@ public partial class PhysGun : Carriable
 			.HitLayer( CollisionLayer.Debris )
 			.Run();
 
-		if ( !tr.Hit || !tr.Body.IsValid() || tr.Entity.IsWorld ) return;
+		if (!tr.Hit || !tr.Entity.IsValid() || !tr.Body.IsValid() || tr.Entity.IsWorld) return;
 
 		var rootEnt = tr.Entity.Root;
 		var body = tr.Body;

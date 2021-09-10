@@ -23,7 +23,7 @@ public partial class BalloonEntity : Prop
 	}
 
 	[Event.Physics.PostStep]
-	public void OnPostPhysicsStep()
+	protected void UpdateGravity()
 	{
 		if ( !this.IsValid() )
 			return;

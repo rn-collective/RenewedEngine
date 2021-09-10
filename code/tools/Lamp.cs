@@ -71,7 +71,8 @@
 					OuterConeAngle = 45,
 					Brightness = 10,
 					Color = Color.Random,
-					Rotation = Rotation.Identity
+					Rotation = Rotation.Identity,
+					LightCookie = Texture.Load("materials/effects/lightcookie.vtex")
 				};
 
 				lamp.SetModel( Model );

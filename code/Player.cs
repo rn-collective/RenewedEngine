@@ -9,9 +9,9 @@ partial class REnginePlayer : Player
 
 	[Net] public PawnController VehicleController { get; set; }
 	[Net] public PawnAnimator VehicleAnimator { get; set; }
-	[Net] public ICamera VehicleCamera { get; set; }
-	[Net] public Entity Vehicle { get; set; }
-	[Net] public ICamera MainCamera { get; set; }
+	[Net, Predicted] public ICamera VehicleCamera { get; set; }
+	[Net, Predicted] public Entity Vehicle { get; set; }
+	[Net, Predicted] public ICamera MainCamera { get; set; }
 	[Net] public float Hunger { get; private set; }
 	[Net] public float Thirst { get; private set; }
 
