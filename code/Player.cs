@@ -32,7 +32,6 @@ partial class REnginePlayer : Player
 
 	public override void Respawn()
 	{
-		SetModel( "models/citizen/citizen.vmdl" );
 
 		Controller = new WalkController();
 		Animator = new StandardPlayerAnimator();
@@ -59,6 +58,7 @@ partial class REnginePlayer : Player
 	[Event("PostPlayerLoadout")]
 	public async void PostPlayerLoadout()
 	{
+		SetModel("models/citizen/citizen.vmdl");
 		LoadInventory();
 		LoadAmmo();
 	}

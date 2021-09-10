@@ -32,27 +32,23 @@ public class Ammo : Panel
 
 			if (weapon.AmmoClip <= 0)
 			{
-				text = "В оружии патроны отсутствуют...";
+				text = "Пуст";
 			}
 			else if (weapon.AmmoClip >= weapon.ClipSize)
 			{
-				text = "В оружии полный магазин";
+				text = "Полон";
 			}
 			else if (weapon.AmmoClip > weapon.ClipSize / 2)
 			{
-				text = "В оружии патронов больше половины магазина";
+				text = "Почти полон";
 			}
 			else if (weapon.AmmoClip == weapon.ClipSize / 2)
 			{
-				text = "В оружии примерно осталась половина от всего магазина";
-			}
-			else if (weapon.AmmoClip < weapon.ClipSize / 3)
-			{
-				text = "В магазине оружия патронов почти не осталось";
+				text = "1~2";
 			}
 			else if (weapon.AmmoClip < weapon.ClipSize / 2)
 			{
-				text = "В оружии патронов осталось меньше половины";
+				text = "Почти пуст";
 			}
 			Weapon.Text = text;
 		}
