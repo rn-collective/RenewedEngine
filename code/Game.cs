@@ -22,6 +22,7 @@ namespace REngine
 			{
 				REngineHudEnt?.Delete();
 				REngineHudEnt = new REngineHud();
+				Log.Info("REngineHudEnt removed and instanced one");
 			}
 		}
 
