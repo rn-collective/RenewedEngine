@@ -64,6 +64,8 @@ namespace REngine
 			base.OnDestroy();
 		}
 
+		public override void DoPlayerSuicide(Client _) { }
+
 		[ServerCmd("spawn")]
 		public static void Spawn(string modelname)
 		{
