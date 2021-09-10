@@ -9,7 +9,7 @@ namespace REngine
 {
     abstract class ItemBase
     {
-		public string Name => "Undefined";
-		public string Description => "Undefined";
+		public string Name { get; set; } = "Undefined";
+		public string Description { get; set; } = "Undefined";
     }
 }
