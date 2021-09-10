@@ -17,7 +17,7 @@ public class InventoryBar : Panel
 
 	public override void Tick()
 	{
-		SetClass("open", true); // TODO: Сделать чтобы панель пропадала при инактивном состоянии
+		SetClass("open", !Input.Down(InputButton.Menu)); // TODO: Сделать чтобы панель пропадала при инактивном состоянии
 		base.Tick();
 
 		var player = Local.Pawn;
