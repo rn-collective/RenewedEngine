@@ -12,8 +12,8 @@ partial class REnginePlayer : Player
 	[Net, Predicted] public ICamera VehicleCamera { get; set; }
 	[Net, Predicted] public Entity Vehicle { get; set; }
 	[Net, Predicted] public ICamera MainCamera { get; set; }
-	[Net] public float Hunger { get; private set; }
-	[Net] public float Thirst { get; private set; }
+	[Net] public float Hunger { get; set; }
+	[Net] public float Thirst { get; set; }
 
 	public ICamera LastCamera { get; set; }
 

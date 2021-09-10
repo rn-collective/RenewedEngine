@@ -6,6 +6,7 @@ partial class Flashlight : BaseRWeapon
 	public override string ViewModelPath => "weapons/rust_flashlight/v_rust_flashlight.vmdl";
 	public override float SecondaryRate => 2.0f;
 	public override AmmoType AmmoType => AmmoType.Nothing;
+	public override bool HideFromAmmoHUD => true;
 
 	protected virtual Vector3 LightOffset => Vector3.Forward * 10;
 

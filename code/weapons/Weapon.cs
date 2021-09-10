@@ -14,6 +14,7 @@ public partial class BaseRWeapon : BaseWeapon, IUse
 	public virtual int ClipSize => 16;
 
 	public virtual float ReloadTime => 3.0f;
+	public virtual bool HideFromAmmoHUD => false;
 
 	[Net, Predicted]
 	public int AmmoClip { get; set; }
