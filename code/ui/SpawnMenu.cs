@@ -27,10 +27,10 @@ public partial class SpawnMenu : Panel
 
 			{
 				var props = body.AddChild<SpawnList>();
-				tabs.SelectedButton = tabs.AddButtonActive( "Props", ( b ) => props.SetClass( "active", b ) );
+				tabs.SelectedButton = tabs.AddButtonActive( "Пропы", ( b ) => props.SetClass( "active", b ) );
 
 				var ents = body.AddChild<EntityList>();
-				tabs.AddButtonActive( "Entities", ( b ) => ents.SetClass( "active", b ) );
+				tabs.AddButtonActive( "Энтити", ( b ) => ents.SetClass( "active", b ) );
 			}
 		}
 
@@ -38,8 +38,7 @@ public partial class SpawnMenu : Panel
 		{
 			var tabs = right.Add.Panel( "tabs" );
 			{
-				tabs.Add.Button( "Tools" ).AddClass( "active" );
-				tabs.Add.Button( "Utility" );
+				tabs.Add.Button( "Инструменты" ).AddClass( "active" );
 			}
 			var body = right.Add.Panel( "body" );
 			{

@@ -21,9 +21,9 @@
         button {
             padding: 6px 5px;
             margin-right: 10px;
-            font-size: 13px;
+            font-size: 23px;
             align-items: center;
-            font-weight: 600;
+            font-weight: bold;
             opacity: 0.2;
             color: #fff;
             cursor: pointer;
@@ -34,14 +34,16 @@
 
             &:hover {
                 opacity: 1;
+                border-radius: 4px;
+                background-color: rgba( #111, 0.4 );
             }
 
             &.active {
                 transform: scale( 1 );
                 opacity: 1;
                 color: #fff;
-                //	background-color: #fff;//( #3273eb, 0.2 );
-                //color: #3273eb;
+                border-radius: 4px;
+                background-color: rgba( #111, 0.7 );
             }
         }
     }
@@ -118,7 +120,7 @@
 
     .left, .right {
         left: 0;
-        transition: all 0.1s ease-out;
+        transition: all 0.2s ease-out;
     }
 }
 
