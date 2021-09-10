@@ -65,7 +65,7 @@
     .right {
         margin-left: 10px;
         flex-direction: column;
-        min-width: 450px;
+        min-width: 190px;
         flex-shrink: 0;
         left: 500px;
         transition: all 0.3s ease-in;
@@ -77,15 +77,15 @@
             background-color: rgba( #111, 0.7 );
             padding: 10px;
 
-
             .toollist {
                 flex-direction: column;
                 width: 150px;
                 color: #aaa;
 
                 button {
-                    padding: 3px 10px;
-                    font-size: 11px;
+                    padding: 3px;
+                    font-size: 20px;
+                    font-weight: bold;
                     transition: all 0.2s ease-out;
                     cursor: pointer;
 
