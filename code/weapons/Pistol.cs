@@ -50,6 +50,12 @@ partial class Pistol : BaseRWeapon
 
 		TimeSinceDischarge = 0;
 
+		if (!TakeAmmo(1))
+		{
+			DryFire();
+			return;
+		}
+
 		var muzzle = GetAttachment( "muzzle" ) ?? default;
 		var pos = muzzle.Position;
 		var rot = muzzle.Rotation;
