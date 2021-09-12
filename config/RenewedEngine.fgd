@@ -1,5 +1,5 @@
 // 
-// BalloonEntity : Sandbox.Prop 
+// BalloonEntity
 // 
 @PointClass model() = ent_balloon : ""
 [
@@ -27,7 +27,7 @@
 ]
 
 // 
-// BouncyBallEntity : Sandbox.Prop 
+// BouncyBallEntity
 // 
 @PointClass model() = ent_bouncyball : ""
 [
@@ -55,7 +55,7 @@
 ]
 
 // 
-// DirectionalGravity : Sandbox.Prop 
+// DirectionalGravity
 // 
 @PointClass model() = directional_gravity : ""
 [
@@ -83,7 +83,7 @@
 ]
 
 // 
-// DroneEntity : Sandbox.Prop 
+// DroneEntity
 // 
 @PointClass model() = ent_drone : ""
 [
@@ -111,7 +111,7 @@
 ]
 
 // 
-// LampEntity : Sandbox.SpotLightEntity 
+// LampEntity
 // 
 @PointClass = ent_lamp : ""
 [
@@ -130,7 +130,7 @@
 ]
 
 // 
-// LightEntity : Sandbox.PointLightEntity 
+// LightEntity
 // 
 @PointClass = ent_light : ""
 [
@@ -149,7 +149,7 @@
 ]
 
 // 
-// NoiseTest : Sandbox.Prop 
+// NoiseTest
 // 
 @PointClass model() = noise_test : ""
 [
@@ -177,7 +177,7 @@
 ]
 
 // 
-// ThrusterEntity : Sandbox.Prop 
+// ThrusterEntity
 // 
 @PointClass model() = ent_thruster : ""
 [
@@ -205,7 +205,7 @@
 ]
 
 // 
-// WheelEntity : Sandbox.Prop 
+// WheelEntity
 // 
 @PointClass model() = ent_wheel : ""
 [
@@ -233,7 +233,7 @@
 ]
 
 // 
-// GravGun : Carriable 
+// GravGun
 // 
 @PointClass = gravgun : ""
 [
@@ -245,7 +245,7 @@
 ]
 
 // 
-// PhysGun : Carriable 
+// PhysGun
 // 
 @PointClass = physgun : ""
 [
@@ -257,7 +257,7 @@
 ]
 
 // 
-// Tool : Carriable 
+// Tool
 // 
 @PointClass = weapon_tool : ""
 [
@@ -269,7 +269,7 @@
 ]
 
 // 
-// Flashlight : BaseRWeapon 
+// Flashlight
 // 
 @PointClass = weapon_flashlight : ""
 [
@@ -281,7 +281,7 @@
 ]
 
 // 
-// Pistol : BaseRWeapon 
+// Pistol
 // 
 @PointClass editormodel( "weapons/rust_pistol/rust_pistol.vmdl" ) = weapon_pistol : ""
 [
@@ -293,7 +293,7 @@
 ]
 
 // 
-// CarEntity : Sandbox.Prop 
+// CarEntity
 // 
 @PointClass model() = ent_car : ""
 [
@@ -321,7 +321,7 @@
 ]
 
 // 
-// REngine.REngine : Sandbox.Game 
+// REngine.REngine
 // 
 @PointClass = rengine : ""
 [

@@ -137,6 +137,11 @@ namespace REngine
 				}
 			}
 		}
-	}
 
+		[ClientCmd("debug_write")]
+		public static void Write()
+		{
+			ConsoleSystem.Run("quit");
+		}
+	}
 }
