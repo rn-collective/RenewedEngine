@@ -20,6 +20,20 @@ Health {
 	}
 }
 
+Vignette {
+	&.open {
+		opacity: 1;
+		transform: scale( 1 );
+	}
+
+	background-image: url( https://github.com/renewed-networks/REngine-Content/blob/main/vignette.png?raw=true );
+	background-color: #fff;
+	background-size: 100%;
+	background-position: center;
+	opacity: 0;
+	transition: all 0.5s ease-out;
+}
+
 ammo {
 	&.open {
 		opacity: 1;
